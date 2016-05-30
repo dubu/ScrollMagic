@@ -273,7 +273,7 @@
 							{
 								curImg: images.length - 1,	// animate propery curImg to number of images
 								roundProps: "curImg",				// only integers so it can be used as an array index
-								repeat: 1,									// repeat 3 times
+								repeat: 0,									// repeat 3 times
 								immediateRender: true,			// load first image automatically
 								ease: Linear.easeNone,			// show every image the same ammount of time
 								onUpdate: function () {
@@ -290,22 +290,13 @@
 					// init controller
 					var controller = new ScrollMagic.Controller();
 
-
-
 //					h = 700;
 					var b = jQuery(".inner_prj").height();
 
 					var h =b*2.5;
 					var v1 = h*0.3;
-					var v2 = h*0.7;
+					var v2 = h*0.6;
 					var v3 = h*1.3;
-
-					// build scene
-					var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: v1})
-							.setTween(tween)
-//							.setPin("#ido")
-							.addIndicators() // add indicators (requires plugin)
-							.addTo(controller);
 
 					var scene = new ScrollMagic.Scene({triggerElement: "#trigger", offset: v2 , duration: v3 })
 							.setTween(tween)
