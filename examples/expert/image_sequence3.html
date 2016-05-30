@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=500" />
+	<meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, tween, tweenmax" />
+	<meta name="author"	content="Jan Paepke (www.janpaepke.de)" />
+	<title>Image Sequence - Examples - ScrollMagic</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../../css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="../../css/style.css" type="text/css">
+	<link rel="stylesheet" href="../../css/examples.css" type="text/css">
+	<link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+
+	<script type="text/javascript" src="../../js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/lib/highlight.pack.js"></script>
+	<script type="text/javascript" src="../../js/lib/modernizr.custom.min.js"></script>
+	<script type="text/javascript" src="../../js/examples.js"></script>
+	
+	<script type="text/javascript" src="../../js/lib/greensock/TweenMax.min.js"></script>
+	<script type="text/javascript" src="../../scrollmagic/uncompressed/ScrollMagic.js"></script>
+	<script type="text/javascript" src="../../scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<script type="text/javascript" src="../../scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/storyfunding_view/b575e87547af2116ff231dd6748620029b657ead/css/m/h.css" >
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="/css/m/h.css" >
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/svc/attach/U0301/cssjs/storyfunding_view/b575e87547af2116ff231dd6748620029b657ead/css/m/pc.css" >
+
+
+	<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/storyfunding_view/b575e87547af2116ff231dd6748620029b657ead/js/cod_merge.js"></script>
+
+
+
+	<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/storyfunding_view/b575e87547af2116ff231dd6748620029b657ead/js/m/support.js"></script>
+
+	<script type="text/javascript" src="//s1.daumcdn.net/svc/attach/U0301/cssjs/storyfunding_view/b575e87547af2116ff231dd6748620029b657ead/js/m/project.js"></script>
+
+	<script type="text/javascript" src="//s1.daumcdn.net/svc/original/U03/commonjs/uoclike/newsfund/uoclike-v1.1.0.min.js"></script>
+
+
+</head>
+
+
+
+<body class="">
+<!-- 웹접근성용 바로가기 링크 모음 -->
+
+<div id="dkIndex">
+	<a href="#dkBody">본문 바로가기</a>
+	<a href="#dkGnb">메뉴 바로가기</a>
+</div>
+
+<div id="dkWrap" class="storyfund_prjtop">
+	<header id="dkHead" class="head_type1 #gnb">
+		<div class="inner_head">
+			<div class="d_head">
+				<h1 class="tit_storyfund">
+					<a href="/" id="dkServiceLogo" class="link_service #storyfunding"><span class="ico_storyfund tit_service">스토리펀딩</span></a>
+				</h1>
+				<div class="wrap_until">
+					<a href="/my" class="link_mymenu"><span class="ico_storyfund ico_mymenu">MY 메뉴</span></a>
+					<a href="/search" class="link_search"><span class="ico_storyfund ico_search">검색</span></a>
+				</div>
+				<div id="dkGnb" class="menu_drop">
+					<h2 class="screen_out">스토리펀딩 메뉴</h2>
+					<ul class="gnb_comm">
+						<li class="menu_home #home"><a href="/" class="link_g"><span class="ico_storyfund ico_home"></span><span class="txt_gnb">홈</span></a></li>                     <li class="menu_cate  #cagegory"><a href="/category/all" class="link_g"><span class="ico_storyfund ico_cate"></span><span class="txt_gnb">전체보기</span></a></li>
+						<li class="menu_start  #create"><a href="/my/project/create" class="link_g"><span class="ico_storyfund ico_start"></span><span class="txt_gnb">시작하기</span></a></li>
+						<li class="menu_intro  #info"><a href="/info/about" class="link_g"><span class="ico_storyfund ico_intro"></span><span class="txt_gnb">서비스 소개</span></a></li>
+						<li class="menu_my  #my"><a href="/my" class="link_g"><span class="ico_storyfund ico_my"></span><span class="txt_gnb">마이</span></a></li>
+					</ul>
+				</div>
+				<a href="javascript:utils.toggleMenu();" class="link_menu #menu">
+					<span class="ico_menu">스토리펀딩 메뉴 펼치기,접기</span>
+				</a>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+			<div id="innerSearchLayer" class="d_search">
+				<h2 class="screen_out">스토리펀딩 검색하기</h2>
+				<form action="/search" id="innerSearchForm"
+					  class="inside_sch" name="innerSearchForm" role="search">
+					<fieldset class="fld_search">
+						<legend class="screen_out">스토리펀딩 검색 폼</legend>
+						<div class="box_search">
+							<input type="search" id="inner_search" class="tf_keyword tf_search" value="" name="q"
+								   placeholder="프로젝트 검색" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" title="검색어 입력">
+							<button type="button" id="btnSearchDel" class="btn_on btn_del"><span class="img_dk">검색어 삭제</span></button>                 <button type="submit" id="btn_search_inner" class="btn_on btn_search" onclick="utils.clickLog({ dpath:'gnb search', url:'http://storyfunding.daum.net/m/project/5590#gnbsearch', curl:'http://storyfunding.daum.net/m/project/5590' });"><span class="img_dk">검색</span></button>
+						</div>
+						<button type="button" class="btn_back" id="btnSearchBack"><span class="img_dk">뒤로 가기</span></button>         </fieldset>
+				</form>
+				<div id="inner_suggest_layer" class="suggest-layer-holder d_sgt"></div>
+			</div>
+
+			<script type="text/javascript">
+				$(document).ready(function(){
+					Suggest.init('https://sugcom.search.daum.net/news_funding', 'javascript:utils.back()');
+				});
+			</script>
+
+		</div>
+
+	</header>
+	<hr class="hide" >
+
+	<div id="layerSocialShareMoreViewContainer"></div>
+	<hr class="hide">
+	<main id="dkContent">
+		<article id="mArticle" class="#project">
+
+
+			<h2 id="dkBody" class="screen_out">&#54620;&#48152;&#46020;&#53685;&#51068;&#44592;&#50896; &#50504;&#51473;&#44540;&#54217;&#54868;&#51020;&#50501;&#54924; &#48288;&#47484;&#47536; 프로젝트 탑</h2>
+			<div class="video_layer video2_layer" id="videoLayer" style="display:none">
+				<div class="body_video">
+					<div class="frame_video">
+						<!-- iframe 동영상은 임시로 넣어둔 부분입니다.
+                                player_iframe 클래스 부여 및 영상에 대한 대체텍스트 제공 필요합니다. -->
+						<iframe id="TopVodIframe"  title="한반도통일기원 안중근평화음악회 베를린" width="100%" height="100%" src="//videofarm.daum.net/controller/video/viewer/Video.html?vid=v4660jJ88jWTQGmmJWGlwUN&amp;play_loc=daum_news&amp;wmode=opaque&amp;profile=HIGH" frameborder="0" scrolling="no" class="player_iframe" allowfullscreen></iframe>
+					</div>
+					<button type="button" class="btn_close" onclick="Project.videoClose();"><span class="ico_storyfund">닫기</span></button>
+				</div>
+			</div>
+
+
+			<div class="figure_prj ">
+				<span class="cover_img" style="background-image:url(//t1.daumcdn.net/thumb/R1280x0/?fname=http://u1.daumcdn.net/cod/2a23dcfc89c47380ccb41dcf6423b9be7f8c7c7e);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='scale');"></span>
+				<span class="frame_g"></span>
+				<div class="info_prj">
+					<div class="inner_prj">
+						<em class="txt_category"><a href="/category/art" class="link_category #category">아트</a></em>
+						<div class="wrap_tit">
+							<h3 class="tit_prj">&#54620;&#48152;&#46020;&#53685;&#51068;&#44592;&#50896; &#50504;&#51473;&#44540;&#54217;&#54868;&#51020;&#50501;&#54924; &#48288;&#47484;&#47536;</h3>
+						</div>
+						<div class="see_area">
+							<a href="javascript:Project.videoPlay();" class="link_vod">소개영상보기<span class="ico_storyfund ico_vod"></span></a>
+						</div>
+					</div>
+				</div>
+				<dl class="status_prj ">
+					<dt class="screen_out">후원정보</dt>
+					<dd>
+						<p class="info_support">
+							<span class="num_support">128</span>명 후원
+						</p>
+			<span class="bar_progress">
+				<span class="bar_support" style="width:3%"></span>
+			</span>
+					</dd>
+					<dd class="info_status">
+            <span class="info_funds">
+				<em class="screen_out">총 모금액</em>
+				<span class="num_status">253,580</span><span class="txt_status">원</span>
+			</span>
+			<span class="info_fulfill">
+				<em class="screen_out">달성율</em>
+				<span class="num_status">3</span><span class="txt_status">%</span>
+			</span>
+			<span class="info_date">
+				<em class="screen_out">기간</em>
+				<span class="num_status">22</span><span class="txt_status">일 남음</span>
+			</span>
+					</dd>
+				</dl>
+
+
+				<div class="support_bar bar_type2">
+					<div class="inner_bar">
+						<button type="button" class="btn_support" onclick="utils.clickLog({ dpath:'project funding', url:'http://storyfunding.daum.net/m/project/5590#projectfunding', curl:'http://storyfunding.daum.net/m/project/5590' });
+                        Project.toSponsor(5590, '')" type="button" class="btn_sponsor #project_fund" ><span class="ico_storyfund ico_coupon">무료 후원권 </span>후원하기</button>
+						<button type="button" class="btn_bookmark "data-tag="" onclick="utils.clickLog({ dpath:'project bookmark', url:'http://storyfunding.daum.net/m/project/5590#projectbookmark', curl:'http://storyfunding.daum.net/m/project/5590' })"><span class="ico_storyfund ico_bookmark">즐겨찾기 등록</span></button><!-- 즐겨찾기 등록 버튼 클릭시 bookmark_on 클래스 부여 -->
+						<a id="layerSocialShareButton" href="javascript:;" onclick="utils.clickLog({ dpath:'project share', url:'http://storyfunding.daum.net/m/project/5590#projectshare', curl:'http://storyfunding.daum.net/m/project/5590' })" class="link_g link_use btn_share">
+							<span class="ico_storyfund ico_share">공유</span><span class="num_g">27</span>            </a>
+					</div>
+				</div>
+			</div>
+			<div class="tab_menu" id="tabMenu">
+				<strong class="screen_out">프로젝트 탭 메뉴</strong>
+				<ul class="list_menu">
+					<li class="on"><a href="/project/5590" class="link_menu #about"><span class="inner_g">소개</span></a></li>
+					<li ><a href="/project/5590/episodes" class="link_menu #episode"><span class="inner_g">연재</span></a></li>        <li ><a href="/project/5590/party#tabMenu" class="link_menu #party"><span class="inner_g">파티</span></a></li>    </ul>
+			</div>
+
+			<form name="shareForm" id="shareForm" style="display:none">
+				<input type="text"  name="serviceUrl" value="https://storyfunding.daum.net" id="serviceUrl">
+				<input type="text"  name="projectId" value="5590" id="shareFormProjectId">
+				<input type="text"  name="episodeId" value="" id="shareFormEpisodeId" >
+
+				<input type="text" name="prefix" value="한반도통일기원 안중근평화음악회 베를린 | 스토리펀딩">
+				<input type="text" name="prefixHash" value="한반도통일기원 안중근평화음악회 베를린 | #스토리펀딩">
+				<input type="text" name="title" value="[스토리펀딩] 한반도통일기원 안중근평화음악회 베를린 ">
+				<input type="text" name="desc" value=" 베를린 필하모니 대극장은 평화 통일의 상징이 된 독일의 Berlin에 있는  세계 최고의 연주회 장입니다.  이 곳에서  '한반도  평화통일 기원 평화음악회'를 개최하여 세계 평화에 기여하고 안중근의사의 평화사상을 널리 전하고자 하는 것이  이 프로젝트의 목적입니다."  >
+				<input type="text" name="imageUrl" value="https://t1.daumcdn.net/thumb/C640x360/?fname=http://u1.daumcdn.net/cod/2a23dcfc89c47380ccb41dcf6423b9be7f8c7c7e" >
+
+				<input type="text"  name="episodeName" value="" id="shareFormEpisodeName">
+				<input type="text"  name="projectName" value="한반도통일기원 안중근평화음악회 베를린" id="shareFormProjectName">
+				<input type="text"  name="projectTitle" value="" id="shareFormProjectTitle">
+				<input type="text"  name="memberName"   >
+			</form>
+			<!-- // tab_menu -->
+			<script type="text/javascript">
+
+				//즐겨찾기
+				Project.bookmarkInit("5590", "");
+				//소셜쉐어
+				utils.mShare({
+					type : 'layer',
+					method : 'PROJECT',
+					containerId : 'dkContent',
+					layerId : 'layerSocialShareMoreViewContainer',
+					shareType : "PROJECT",
+					multiBtn : true
+				});
+				//꿀티비 하트
+			</script>
+
+
+			<div class="cont_prjintro " >
+				<h3 class="screen_out">소개</h3>
+				<div class="intro_author" >
+					<h4 class="tit_prjtop">Project by</h4>
+					<div class="author_prjtop">
+						<!-- 창작가 2단일때(2명, 4명)  list_type2 , 3단일때(3명, 5명이상)  list_type3  클래스 추가 -->
+						<ul class="list_author  #author">
+							<li>
+								<a href="/author/3596?projectId=5590" class="link_author">
+                        <span class="figure_img">
+                            <img src="//t1.daumcdn.net/thumb/C76x76/?fname=http://u1.daumcdn.net/cod/357a70f03695b0369119d9714a221fde635c4f12" class="thumb_g" alt="">
+                        </span>
+									<strong class="tit_author">&#51109;&#44592;&#50885;</strong>
+									<span class="txt_author">&#50724;&#52992;&#49828;&#53944;&#46972; &#51648;&#55064;&#51088;</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<p class="desc_prj" >이 프로젝트는 7,000,000원을 목표로<br> 2016.06.20까지 35일간 진행합니다.</p>            </div>
+
+
+				<div class="spacer s0" id="trigger"></div>
+				<div id="ido"  >
+					<img id="myimg"/><br>
+				</div>
+
+				<script>
+					// define images
+					var images = [
+						"../../img/t02.jpg",
+						"../../img/t03.jpg",
+						"../../img/t04.jpg",
+						"../../img/t05.jpg",
+						"../../img/t06.jpg"
+					];
+
+					// TweenMax can tween any property of any object. We use this object to cycle through the array
+					var obj = {curImg: 0};
+
+					// create tween
+					var tween = TweenMax.to(obj, 0.5,
+							{
+								curImg: images.length - 1,	// animate propery curImg to number of images
+								roundProps: "curImg",				// only integers so it can be used as an array index
+								repeat: 1,									// repeat 3 times
+								immediateRender: true,			// load first image automatically
+								ease: Linear.easeNone,			// show every image the same ammount of time
+								onUpdate: function () {
+									$("#myimg").attr("src", images[obj.curImg]); // set the image source
+								}
+							}
+					);
+
+					// init controller
+					var controller = new ScrollMagic.Controller();
+
+					// build scene
+					var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 200})
+							.setTween(tween)
+//							.setPin("#ido")
+							.addIndicators() // add indicators (requires plugin)
+							.addTo(controller);
+
+					var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 1000 , offset: 700})
+							.setTween(tween)
+							.setPin("#ido")
+							.addIndicators() // add indicators (requires plugin)
+							.addTo(controller);
+
+					// handle form change
+					$("form.move input[name=duration]:radio").change(function () {
+						scene.duration($(this).val());
+					});
+				</script>
+
+
+
+				<div class="info_prjtop fold_open"> <!-- 더보기 클릭시 fold_open 클래스 추가  -->
+					<div class="query_prjtop">
+						<h4 class="tit_prjtop">
+							<span class="txt_storyfund txt_about">About you_</span>당신에 대해 말해주세요.
+						</h4>
+						<p class="desc_prjtop">&#51200;&#45716; &#49436;&#50872;&#45824; &#51020;&#45824;&#50640;&#49436; &#51089;&#44257;&#51012; &#46041;&#45824;&#54617;&#50896;&#50640;&#49436; &#51648;&#55064;&#47484; &#51204;&#44277;&#54616;&#50688;&#51004;&#47728;,  6&#45380;&#51704; ' &#50504;&#51473;&#44540; &#54217;&#54868;&#51020;&#50501;&#54924;'&#51032; &#50696;&#49696;&#44048;&#46021;&#51004;&#47196;&#49436;  &#50504;&#51473;&#44540; &#51032;&#49324;&#51032; &#51221;&#49888;&#51012; &#51020;&#50501;&#50696;&#49696;&#47196; &#49849;&#54868;&#49884;&#53020; &#49548;&#44060;&#54616;&#44256; &#51080;&#49845;&#45768;&#45796;. &#54788;&#51116;&#45716;  Muse Symphony Orchestra Seoul &#50696;&#49696;&#44048;&#46021;&#51004;&#47196; &#51080;&#49845;&#45768;&#45796;.</p>
+					</div>
+					<div class="query_prjtop">
+						<h4 class="tit_prjtop">
+							<span class="txt_storyfund txt_story">Project story_</span>어떤 프로젝트인가요?
+						</h4>
+						<p class="desc_prjtop"> &#48288;&#47484;&#47536; &#54596;&#54616;&#47784;&#45768; &#45824;&#44537;&#51109;&#51008; &#54217;&#54868; &#53685;&#51068;&#51032; &#49345;&#51669;&#51060; &#46108; &#46021;&#51068;&#51032; Berlin&#50640; &#51080;&#45716;  &#49464;&#44228; &#52572;&#44256;&#51032; &#50672;&#51452;&#54924; &#51109;&#51077;&#45768;&#45796;.  &#51060; &#44275;&#50640;&#49436;  '&#54620;&#48152;&#46020;  &#54217;&#54868;&#53685;&#51068; &#44592;&#50896; &#54217;&#54868;&#51020;&#50501;&#54924;'&#47484; &#44060;&#52572;&#54616;&#50668; &#49464;&#44228; &#54217;&#54868;&#50640; &#44592;&#50668;&#54616;&#44256; &#50504;&#51473;&#44540;&#51032;&#49324;&#51032; &#54217;&#54868;&#49324;&#49345;&#51012; &#45328;&#47532; &#51204;&#54616;&#44256;&#51088; &#54616;&#45716; &#44163;&#51060;  &#51060; &#54532;&#47196;&#51229;&#53944;&#51032; &#47785;&#51201;&#51077;&#45768;&#45796;. </p>
+					</div>
+					<div class="query_prjtop">
+						<h4 class="tit_prjtop">
+							<span class="txt_storyfund txt_plan">Funding plan_</span>모아진 펀딩 금액은 어떻게 사용하실 건가요?
+						</h4>
+						<p class="desc_prjtop">&#48288;&#47484;&#47536; &#54596;&#54616;&#47784;&#45768; &#45824;&#44537;&#51109; &#45824;&#44288;&#47308; &#48143; &#48512;&#45824;&#49884;&#49444; &#49324;&#50857;&#47308;, &#50724;&#52992;&#49828;&#53944;&#46972; &#50672;&#51452;&#48708;, &#51020;&#50501;&#54924; &#49892;&#54889; &#50672;&#51452; &#48708;&#46356;&#50724; &#51228;&#51089;&#48708;&#50640; &#50416;&#51077;&#45768;&#45796;.</p>
+					</div>
+					<div class="query_detail">
+						<h4 class="tit_prjtop">
+							<span class="txt_storyfund txt_detail">Details_</span>보다 자세하게 당신의 프로젝트를 소개해주세요.
+						</h4>
+						<div class="box_detail" aria-hidden="false"><div class="detail"><p><strong>* 공연명 : </strong>한반도 평화통일 기원 '안중근 평화음악회'</p>
+							<p><strong>* 일 시 :</strong> 2016년 6월 21일(화) PM: 8:00~10:00</p>
+							<p><strong><span lang="EN-US">* </span>공연시간 </strong><span lang="EN-US"><strong>:</strong> 120</span>분 <span lang="EN-US">(</span>휴식 <span lang="EN-US">20</span>분 포함<span lang="EN-US">) </span></p>
+							<p><strong>* 장 소 :</strong> 베를린 필하모니 대극장( Berliner Philharmonie Grosser Saal)</p>
+							<p><strong>* 예술 총감독 및 지휘 :</strong> . 장기웅<br /></p>
+							<p><strong>* 관현악단 :</strong> Muse Symphony Orchestra Seoul</p>
+							<p><strong><span lang="EN-US">* </span>공연 내용 </strong><span lang="EN-US"><strong>: </strong></span>오케스트라 반주에 의한 성악 독창<span lang="EN-US">, </span>중창 기악 협연 및 합주</p>
+							<p><strong>* 협연 : </strong>소프라노 김수연, 김성지, 조안나, 테너 최상호, 바리톤 김만규, 베이스바리톤 윤병일, Flutist 오신정</p>
+							<p><strong><span lang="EN-US">* </span>참석대상 </strong><span lang="EN-US"><strong>:</strong> </span>독일 문화 예술 관계자<span lang="EN-US">, </span>언론인<span lang="EN-US">,</span><span lang="EN-US"> </span>외교관<span lang="EN-US">, </span>초대 인사<span lang="EN-US">, </span>재독 한인 및 외국인.<span lang="EN-US"><br /></span></p>
+							<p class="0">저는 지난해 <span lang="EN-US">12</span>월 <span lang="EN-US">17</span>일 뉴욕에서 재미 동북부한인연합회의 열렬한 요청으로 <strong>'안중근 평화음악회' 예술감독으로서 평화음악회를 지휘하였습니다.</strong> 공연 후 교포들은 '교향시 안중근의' 연주를 영상시와 함께 감상하시며 눈물을 흘리시고 감격스러워하셨습니다<span lang="EN-US">. </span><span lang="EN-US"> </span>이 음악회가 <strong>국내뿐 아니라 해외에서도 열려야 하는 이유</strong>를 저는 찾게 되었습니다.<br /></p>
+							<blockquote>
+								<!--[if !supportEmptyParas]--> 안중근 평화음악회의<br />다음 행선지는<br />유럽의 베를린이 되었습니다
+							</blockquote>
+							<p class="0"><strong>베를린 필하모니홀</strong>에 대관 신청을 하였는데, <span lang="EN-US"> 엄격한 심사를 거쳐</span> '평화음악회'의 대관이 결정된 것입니다. <span lang="EN-US"> 2016년 2월 베를린 필하모니 프</span>로덕션 사무실로 찾아가 대관 계약 체결과 음악회 개최에 필요한 준비를 열심히 하고 돌아왔습니다.</p>
+							<p class="0"><span lang="EN-US">EU</span>의 전임 사무총장인 에카르트 쿤츠 박사도 만나서 음악회 공연을 도와주실 것을 부탁드렸고,<span lang="EN-US"> 재독 한인</span>회장, 베를린 한인회장 그리고 교민 대표들도 만나서 음악회의 성공적 개최를 위해 협조를 부탁하였습니다.</p>
+							<p class="0"><strong>억대의 제작비가 들어가는 이 음악회의 제작 비용을 마련하기 위해</strong> <strong>그동안 저는 기업체와 사회단체들에 협찬을 의뢰하였지만 한결같이 거절당하였습니다.</strong><span lang="EN-US"> </span>예술 총감독인 저도 지난 <span lang="EN-US">5</span>년간 사비를 털어 공연을 해오다 이제는 한계에 다다른 것 같습니다<span lang="EN-US">. </span></p>
+							<p class="0"><span lang="EN-US"></span>그러나 아무리 어려운 상황이라 할지라도 이번 <strong>베를린</strong> <strong>안중근 평화음악회는 포기할 수 없다</strong>고 생각하였습니다. 세계 최고의 지휘자들, 카랴얀, 클라우디오 아바도, 현재는 사이몬 래틀이 지휘하고 베를린 필하모니 오케스트라가 연주하는 그곳에서 반드시 한반도 평화통일을 위한 안중근 평화음악회를 개최하여 <strong>한반도 평화통일의 염원을 널리 알리고 안중근 의사의 평화 정신을 음악 예술로 승화시키는 것이야 말로 그 무엇과도 바꿀 수 없는 소중한 것이기 때문에 그렇습니다.</strong></p>
+							<p class="0">저는 이번 평화음악회가, 한반도 평화통일에 기여하고 나아가 아직 전쟁과 분쟁의 비극으로 신음하는 세계의 인류에게 음악으로써 희망을 전할 수 있으리라 믿으며,<span lang="EN-US"> </span><span lang="EN-US"> 한반도 평화통일에 기초석을 쌓는 역사에 길이 남는 음악회로 기록되고 기억되리라 믿습니다.</span><span lang="EN-US"> </span></p>
+							<p class="0"><strong><span lang="EN-US"> 음악 예술인으로서 저는 앞으로도 </span> 한반도 평화통일을 위해 통일의 그날까지 전진해 나가겠습니다.</strong></p>
+							<p class="0"><span lang="EN-US"> 한반도 평화통일 기원 안중근 평화음악회 예술감독&amp;지휘자 </span><span lang="EN-US">장기웅 </span></p></div></div>
+					</div>
+					<!-- 펼침시 ' 더보기 '  문구를 ' 접기 ' 로 변경이 필요합니다. -->
+
+				</div>
+				<div class="support_ticket" id="supportTicket">
+					<div class="inner_ticket">
+						<a href="/event/coupon" class="item_support #event_coupon" target="new">
+                <span class="info_detail">
+					<strong class="tit_info tit_m"><span class="fw_n">카톡 공유하면 </span>후원권 드려요</strong>
+					<strong class="tit_info tit_pc"><span class="fw_n">카톡으로 프로젝트를 공유하면 </span>무료 후원권을 드려요</strong>
+                    <span class="txt_see">자세히 보기</span>
+                </span>
+							<span class="ico_storyfund ico_phone"></span>
+						</a>
+						<a href="javascript:utils.createKakakoTalkCoupon({type:'project', projectId: '5590' ,imageUrl: 'http://t1.daumcdn.net/thumb/C640x360/?fname=http://u1.daumcdn.net/cod/2a23dcfc89c47380ccb41dcf6423b9be7f8c7c7e',serviceUrl: 'https://storyfunding.daum.net'});"  class="item_take #coupon">
+							<span class="txt_take">후원권 받기<span class="ico_storyfund ico_arrow"></span></span>
+						</a>
+					</div>
+				</div>
+				<div class="info_rewards">
+					<div class="head_tit clear_g">
+						<h4 class="tit_prjtop">후원 리워드</h4>
+						<div class="help_info"> <!-- 후원금 사용안내 클릭시(레이어 활성화시) tooltip_open 클래스 부여  -->
+							<a href="javascript:;" onclick="$('.info_rewards .tooltip_layer').show()" class="link_rewards"><span class="txt_rewards">후원금 사용안내</span></a>
+							<!-- 후원금 사용안내 레이어 -->
+							<div class="tooltip_layer">
+								<div class="inner_layer">
+									<div class="layer_body">
+										<strong class="tit_layer">후원금 사용안내</strong>
+										<p class="desc_info">
+											여러분의 소중한 후원금은 소정의 수수료를 제하고 전액 창작자에게 전달되며, 창작자가 프로젝트 펀딩 플랜에서 밝힌 용도로 활용됩니다.
+											<br><br>
+											프로젝트는 정해진 후원기간이 만료되면 자동 종료됩니다. 목표액이 달성되지 않는 경우, 후원된 금액만큼 전달됩니다. 스토리펀딩은 기부금 영수증 발급이 불가능합니다.
+										</p>
+									</div>
+									<div class="layer_foot">
+										<button type="button" class="btn_close" onclick="$('.info_rewards .tooltip_layer').hide();"><span class="ico_storyfund ico_close">닫기</span></button>
+										<span class="ico_storyfund ico_arrow"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					<ul class="list_reward">
+						<li>
+							<div class="check_reward">
+								<strong class="txt_lab2"><label class="lab_g" for="choiceNoReward">리워드 없음</label></strong>
+                <span class="checkbox_g checkbox2_g">
+                                        <input type="radio" id="choiceNoReward" class="inp_check _check_reward" name="reward"
+											   data-amount="1000" data-index="0" value="NO_REWARD">
+                    <span class="ico_storyfund ico_check2">후원금 수정 및 후원하기</span>
+                                    </span>
+							</div>
+							<form action="#" class="form_rewards" onsubmit="return false">
+								<fieldset class="fld_reward">
+									<legend class="screen_out">후원금액 입력 폼</legend>
+									<label class="screen_out" for="supportAmount0">후원 금액</label>
+									<div class="inptf_comp">
+										<input  type="text"                                                                          id="supportAmount0" class="inp_comm _support_amount" value="1,000">
+										<span class="txt_won" aria-hidden="true">원</span>
+									</div>
+									<em class="notice_support">더 많은 금액을 입력하실 수 있습니다.</em>
+									<button type="submit" class="btn_support _btn_support"><span class="ico_storyfund"></span>후원하기</button>
+								</fieldset>
+							</form>
+							<p class="desc_reward">이 프로젝트에 후원합니다.<br>파티 참여, 프로필 업그레이드를 할 수 있습니다.</p>
+						</li>
+
+
+
+
+						<li class="">
+							<div class="check_reward">
+								<strong class="txt_lab">
+									<label class="lab_g" for="choiceRewards1">
+										<span class="screen_out">후원 금액</span>
+										<span class="num_money">10,000</span><span class="txt_won">원</span>
+									</label>
+								</strong>
+                                            <span class="checkbox_g checkbox2_g">
+                                                <input type="radio" id="choiceRewards1" class="inp_check _check_reward" name="reward"
+													   data-amount="10000" data-index="1" value="73968">
+                        <span class="ico_storyfund ico_check2">후원금 수정 및 후원하기</span>
+                                            </span>
+							</div>
+							<form action="#" class="form_rewards" onsubmit="return false">
+								<fieldset class="fld_reward">
+									<legend class="screen_out">후원금액 입력 폼</legend>
+									<label class="screen_out" for="supportAmount1">후원 금액</label>
+									<div class="inptf_comp">
+										<input  type="text"                                                                              id="supportAmount1"  class="inp_comm _support_amount" value="10,000">
+										<span class="txt_won" aria-hidden="true">원</span>
+									</div>
+									<em class="notice_support">더 많은 금액을 입력하실 수 있습니다.</em>
+									<button type="submit" class="btn_support _btn_support"><span class="ico_storyfund"></span>후원하기</button>
+								</fieldset>
+							</form>
+
+							<strong class="tit_reward">&#54620;&#48152;&#46020; &#54217;&#54868;&#53685;&#51068; &#44592;&#50896; &#50504;&#51473;&#44540; &#54217;&#54868;&#51020;&#50501;&#54924; CD 1&#47588; &#51613;&#51221;</strong>
+							<p class="desc_reward">&#54217;&#54868;&#51020;&#50501;&#54924; &#49892;&#54889;&#50672;&#51452; CD Booklet&#50640; &#54980;&#50896;&#51088; &#51060;&#47492;&#51060; &#51064;&#49604;&#46108;  CD 1&#47588;&#51613;&#51221;.<br>&#51020;&#50501;&#54924; &#45433;&#51020;&#51008; &#48288;&#47484;&#47536;&#54596;&#54616;&#47784;&#45768; &#51204;&#49549; &#52572;&#44256;&#51032; Tonmeister &#46308;&#51060; &#46356;&#51648;&#53560;&#47196; &#45433;&#51020;&#54616;&#44256; &#54200;&#51665;&#54620; &#51020;&#50896;&#51004;&#47196; &#51228;&#51089;&#54616;&#47728; &#49892;&#54889;&#50672;&#51452; &#51473; Hightlight &#48512;&#48516;&#51012; &#49440;&#44257;&#54616;&#50668; CD 1&#47588;&#47196; &#51228;&#51089;&#54633;&#45768;&#45796;.</p>
+						</li>
+
+
+
+
+						<li class="">
+							<div class="check_reward">
+								<strong class="txt_lab">
+									<label class="lab_g" for="choiceRewards2">
+										<span class="screen_out">후원 금액</span>
+										<span class="num_money">20,000</span><span class="txt_won">원</span>
+									</label>
+								</strong>
+                                            <span class="checkbox_g checkbox2_g">
+                                                <input type="radio" id="choiceRewards2" class="inp_check _check_reward" name="reward"
+													   data-amount="20000" data-index="2" value="63584">
+                        <span class="ico_storyfund ico_check2">후원금 수정 및 후원하기</span>
+                                            </span>
+							</div>
+							<form action="#" class="form_rewards" onsubmit="return false">
+								<fieldset class="fld_reward">
+									<legend class="screen_out">후원금액 입력 폼</legend>
+									<label class="screen_out" for="supportAmount2">후원 금액</label>
+									<div class="inptf_comp">
+										<input  type="text"                                                                              id="supportAmount2"  class="inp_comm _support_amount" value="20,000">
+										<span class="txt_won" aria-hidden="true">원</span>
+									</div>
+									<em class="notice_support">더 많은 금액을 입력하실 수 있습니다.</em>
+									<button type="submit" class="btn_support _btn_support"><span class="ico_storyfund"></span>후원하기</button>
+								</fieldset>
+							</form>
+
+							<strong class="tit_reward">&#48288;&#47484;&#47536;&#54596;&#54616;&#47784;&#45768; &#45824;&#44537;&#51109;  &#54217;&#54868;&#51020;&#50501;&#54924; &#44277;&#50672;&#49892;&#54889; DVD 1 &#44060; &#51613;&#51221;</strong>
+							<p class="desc_reward">'&#54620;&#48152;&#46020; &#54217;&#54868;&#53685;&#51068; &#44592;&#50896; &#50504;&#51473;&#44540; &#54217;&#54868;&#51020;&#50501;&#54924;' Title Roll &#50640;  &#54144;&#46377; &#52280;&#50668;&#51088;&#46308;&#51032; &#51060;&#47492;&#51060; &#46308;&#50612;&#44036; &#49892;&#54889;  DVD 1&#44060; (&#48288;&#47484;&#47536; &#54596;&#54616;&#47784;&#45768; &#45824;&#44537;&#51109;  '&#46356;&#51648;&#53560; &#53080;&#49436;&#53944;&#54848;' &#52524;&#50689;&#54016; &#50644;&#51648;&#45768;&#50612;&#46308;&#51060; &#52572;&#49345;&#44553;  HD &#52852;&#47700;&#46972; &#49464; &#45824;&#47196; &#52524;&#50689;&#54616;&#44256; &#45433;&#51020;)</p>
+						</li>
+
+						<li>
+							<div class="check_reward check_reward2">
+								<strong class="txt_lab">
+									<label class="lab_g" for="choiceBigReward"><span class="screen_out">후원 금액</span><span class="num_money">20,000</span><span class="txt_won">원 이상</span></label>
+								</strong>
+                <span class="checkbox_g checkbox2_g">
+                                        <input type="radio" id="choiceBigReward" class="inp_check _check_reward" name="reward"
+											   data-amount="20000" data-index="100" value="BIG_REWARD">
+                    <span class="ico_storyfund ico_check2">후원금 수정 및 후원하기</span>
+                                    </span>
+							</div>
+							<form action="#" class="form_rewards" onsubmit="return false">
+								<fieldset class="fld_reward">
+									<legend class="screen_out">후원금액 입력 폼</legend>
+									<label class="screen_out" for="supportAmount100">후원 금액</label>
+									<div class="inptf_comp">
+										<input  type="text"                                                                          id="supportAmount100" class="inp_comm _support_amount" value="20,000">
+										<span class="txt_won" aria-hidden="true">원</span>
+									</div>
+									<em class="notice_support">더 많은 금액을 입력하실 수 있습니다.</em>
+									<button type="submit" class="btn_support _btn_support"><span class="ico_storyfund"></span>후원하기</button>
+								</fieldset>
+							</form>
+							<strong class="tit_reward">통큰 후원</strong>
+							<p class="desc_reward">리워드 없이 '통 크게' 고액 후원할 수 있습니다.<br>프로젝트에 참여하고 최신 소식을 가장 빠르게 전달 받을 수 있습니다.</p>
+						</li>
+
+					</ul>
+					<script>
+						$(document).ready(function() {
+
+							var currDate = "2016-05-30-23-54-52";
+							var arrCurrDate = currDate.split("-");
+							currDate = new Date(arrCurrDate[0], arrCurrDate[1], arrCurrDate[2], arrCurrDate[3], arrCurrDate[4], arrCurrDate[5]).getTime();
+							var startDate = new Date(2015,11,9,4,00,00,00).getTime();
+							var endDate = new Date(2015,11,9,9,00,00,00).getTime();
+
+
+							Support.init({
+								'step': 'projectView',
+								'projectId': '5590',
+								'supportStatus': 'SERVICE',
+								'currDate': currDate,
+								'startDate': startDate,
+								'endDate': endDate,
+								's': ''
+							});
+						});
+					</script>
+					<small class="copr_info"><span class="txt_copy">&copy;</span> MI ART &amp; CULTURE</small>
+				</div>
+			</div><!-- //cont_prjintro -->
+			<a href="/project/5590/party#tabMenu" class="link_partyjoin #banner">
+				<span class="bg_join"></span>
+				<strong class="tit_join">후원자가 되면 창작자와 함께 <span class="fw_n">프로젝트를 만들어 갈 수 있습니다.</span></strong>
+				<span class="btn_join">파티 입장하기<span class="ico_storyfund ico_arrow"></span></span>
+			</a>
+
+			<script type="text/javascript">
+				$(document).ready(function() {
+//    utils.scrollBar();
+					var referrer = document.referrer;
+					var orderBy = "";
+					var parentId = "";
+//        if(referrer){
+//            orderBy = utils.getParam("orderBy", referrer);
+//        }
+
+					if(orderBy){
+						parentId = orderBy;
+					}else{
+						parentId = "categoryOrder";
+					}
+
+					utils.viewCache({
+						'viewReferrer': document.location.href,
+						'viewParentId': parentId
+					});
+
+
+					Project.init(5590);
+					utils.contentLog({
+						objectType: 'PROJECT',
+						objectId: "5590",
+						countType: "VIEW"
+					});
+				});
+			</script>
+
+			<!-- START 레이어 팝업 노출위치 -->
+			<div class="authorListLayer" style="display:none">
+				<div class="dimmed_layer"></div>
+				<div class="storyfund_layer">
+					<div class="inner_layer">
+						<div class="layer_body">
+							<strong class="tit_head">Project by</strong>
+							<div class="author_box" style="height:553px">
+								<ul class="list_author">
+									<li>
+										<a href="/author/3596?projectId=5590" class="link_author">
+											<span class="ico_storyfund ico_arrow"></span>
+                                <span class="figure_img">
+                                    <img src="//t1.daumcdn.net/thumb/C76x76/?fname=http://u1.daumcdn.net/cod/357a70f03695b0369119d9714a221fde635c4f12" wicontentCountLogdth="60" height="60" class="thumb_g" alt="">
+                                </span>
+                                <span class="detail_cont">
+                                    <strong class="tit_author">&#51109;&#44592;&#50885;</strong>
+                                    <span class="txt_author">&#50724;&#52992;&#49828;&#53944;&#46972; &#51648;&#55064;&#51088;</span>
+                                </span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<button type="button" class="btn_close"><span class="ico_storyfund">닫기</span></button>
+						</div>
+					</div>
+				</div>    <!--// END 레이어 팝업 노출위치 -->
+			</div>
+
+
+		</article>
+	</main>
+	<hr class="hide">
+	<div class="wrap_foot">
+
+		<div class="foot_content" id="footContent">
+			<a href="#none" class="link_app">
+				<span class="txt_app"><em class="screen_out">스토리펀딩 바로가기 </em>홈화면에 추가</span>
+				<span class="ico_storyfund ico_down"></span>
+			</a>
+			<a href="#" class="link_top"><span class="ico_storyfund ico_top"></span>TOP</a>
+		</div>
+		<footer id="dkFoot" class="d_foot">
+			<small class="copr_info">
+				<a href="http://www.daum.net" class="link_policy">Daum</a><span class="txt_bar">|</span>
+				<a href="/info/about" class="link_policy">서비스소개</a><span class="txt_bar">|</span>
+				<a href="http://cs.daum.net/faq/1389.html" class="link_policy">고객센터</a><span class="txt_bar">|</span>
+				<a href="http://www.daumcorp.com/main.daum?t__nil_footer=daumcorp" class="link_daumcorp">&copy; Kakao Corp.</a>
+			</small>
+		</footer>
+
+	</div>
+	<script type="text/template" id="templateMessage">
+		<div class="layer_body ">
+			<p class="desc_alert"><%=message%></p>
+		</div>
+	</script>
+
+	<script type="text/template" id="templateTitleMessage">
+		<div class="layer_body">
+			<p class="desc_alert"><strong class="txt_alert"><%=title%></strong> <%=message%></p>
+		</div>
+	</script>
+
+	<script type="text/template" id="templateBigTitleMessage">
+		<div class="layer_body">
+			<strong class="tit_alert"><%=title%></strong>
+			<p class="desc_alert"><%=message%></p>
+		</div>
+	</script>
+
+	<script type="text/template" id="templateTitleMessageClose">
+		<div class="layer_body">
+			<strong class="tit_alert"><%=title%></strong>
+			<p class="desc_alert"><%=message%></p>
+			<button class="alertify-button-close"><span class="ico_storyfund">닫기</span></button>
+		</div>
+	</script>
+	<div role="region" class="hide" aria-live="polite" aria-atomic="true">
+		<span id="ariaLiveForToastMessage"></span>
+	</div></div>
+<script>
+	var _tiq = 'undefined' !== typeof _tiq ? _tiq : [];
+
+
+	//_tiq.push(['__setSection', 'newsfund']);
+
+
+	_tiq.push(['__setParam', 'puid', '1464620092085']);
+	_tiq.push(['__setParam', 'svcdomain', 'storyfunding.daum.net']);
+
+	_tiq.push(['__clickOn']);
+
+	var link =  COD.Global.serviceUrl + "/project/5590";
+
+	_tiq.push(['__setParam', 'plink',  link]);
+	_tiq.push(['__setConfig', {enableScroll:true, enableSPA:true}]);
+</script>
+<script async src="//go.daum.net/jsa_minidaum_mobile.daum" charset="utf-8" type="text/javascript"></script></body>
+</html>

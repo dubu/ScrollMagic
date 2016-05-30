@@ -968,6 +968,10 @@ a.viewsource:before {
 	height: 300px;
 }
 
+#ido {
+	height: 1150px;
+}
+
 .copyright {
 	font-variant: italic;
 	font-size: 11px;
