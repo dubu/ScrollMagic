@@ -252,7 +252,7 @@
 
 				<div class="spacer s0" id="trigger"></div>
 				<div id="ido"  >
-					<img id="myimg"/><br>
+					<img id="myimg" width="100%"/><br>
 				</div>
 
 				<script>
@@ -278,6 +278,11 @@
 								ease: Linear.easeNone,			// show every image the same ammount of time
 								onUpdate: function () {
 									$("#myimg").attr("src", images[obj.curImg]); // set the image source
+
+									var m = jQuery(".inner_prj").height();
+									var m1 = m*3.5;
+
+									jQuery("#ido").height(m1);
 								}
 							}
 					);
@@ -285,14 +290,24 @@
 					// init controller
 					var controller = new ScrollMagic.Controller();
 
+
+
+//					h = 700;
+					var b = jQuery(".inner_prj").height();
+
+					var h =b*2.5;
+					var v1 = h*0.3;
+					var v2 = h*0.7;
+					var v3 = h*1.3;
+
 					// build scene
-					var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 200})
+					var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: v1})
 							.setTween(tween)
 //							.setPin("#ido")
 							.addIndicators() // add indicators (requires plugin)
 							.addTo(controller);
 
-					var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 1000 , offset: 700})
+					var scene = new ScrollMagic.Scene({triggerElement: "#trigger", offset: v2 , duration: v3 })
 							.setTween(tween)
 							.setPin("#ido")
 							.addIndicators() // add indicators (requires plugin)
